@@ -6,41 +6,62 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #000000;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo.HelloController">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1366.0" style="-fx-background-color: #ECFFB7;" stylesheets="@styles.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo.HelloController">
    <children>
-      <Pane layoutX="165.0" layoutY="51.0" prefHeight="298.0" prefWidth="270.0" style="-fx-background-color: #FFFFFF;">
+      <Pane layoutX="734.0" layoutY="98.0" prefHeight="552.0" prefWidth="509.0" style="-fx-background-color: #57744B;" styleClass="roudend-pane">
          <children>
-            <Label fx:id="erroCadastro" layoutX="123.0" layoutY="251.0" textFill="#f80000">
+            <Label layoutX="134.0" layoutY="11.0" text="Cadastre-se" textFill="#fefae0">
+               <font>
+                  <Font name="System Bold" size="48.0" />
+               </font>
+            </Label>
+            <Label layoutX="74.0" layoutY="96.0" opacity="0.65" prefHeight="17.0" prefWidth="255.0" text="Preencha o formulário:" textFill="#fefae0">
+               <font>
+                  <Font size="14.0" />
+               </font></Label>
+            <TextField fx:id="nome" layoutX="69.0" layoutY="131.0" prefHeight="35.0" prefWidth="372.0" promptText="Nome" style="-fx-background-color: #FEFAE0;" />
+            <TextField fx:id="email" layoutX="70.0" layoutY="182.0" prefHeight="35.0" prefWidth="372.0" promptText="Email" style="-fx-background-color: #FEFAE0;" />
+            <PasswordField fx:id="senha" layoutX="70.0" layoutY="233.0" prefHeight="35.0" prefWidth="372.0" promptText="Senha" style="-fx-background-color: #FEFAE0;" />
+            <PasswordField fx:id="confirmarSenha" layoutX="70.0" layoutY="284.0" prefHeight="35.0" prefWidth="372.0" promptText="Confirmar senha" style="-fx-background-color: #FEFAE0;" />
+            <CheckBox fx:id="termos" layoutX="152.0" layoutY="408.0" mnemonicParsing="false" prefHeight="20.0" prefWidth="242.0" text="Concordo com os termos de uso." textFill="#fefae0">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </CheckBox>
+            <Button fx:id="cadastrar" layoutX="206.0" layoutY="452.0" mnemonicParsing="false" onAction="#botaoCadastrar" prefHeight="30.0" prefWidth="100.0" style="-fx-background-color: #FEFAE0;" text="Cadastrar">
+               <font>
+                  <Font size="14.0" />
+               </font></Button>
+            <Label layoutX="170.0" layoutY="523.0" prefHeight="20.0" prefWidth="143.0" text="Já tem uma conta?" textFill="#fefae0">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Hyperlink fx:id="entrar" layoutX="286.0" layoutY="520.0" onAction="#telaLogin" text="Entrar" textFill="#fefae0" underline="true">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Hyperlink>
+            <Label layoutX="463.0" layoutY="496.0" text="🍁 " textFill="#fefae0">
+               <font>
+                  <Font size="36.0" />
+               </font>
+            </Label>
+            <Label fx:id="erroCadastro" layoutX="255.0" layoutY="351.0" textFill="#f80000">
                <font>
                   <Font size="11.0" />
                </font></Label>
-            <Label layoutX="14.0" layoutY="14.0" text="Cadastro">
-               <font>
-                  <Font name="System Bold" size="36.0" />
-               </font>
-            </Label>
-            <PasswordField fx:id="confirmarSenha" layoutX="18.0" layoutY="194.0" prefHeight="25.0" prefWidth="228.0" promptText="confirmar senha" />
-            <Button fx:id="cadastrar" layoutX="23.0" layoutY="255.0" mnemonicParsing="false" onAction="#botaoCadastrar" text="Cadastrar" />
-            <Label layoutX="20.0" layoutY="61.0" opacity="0.65" prefHeight="17.0" prefWidth="264.0" text="Preencha o formulário:" />
-            <Label fx:id="sucessoCadastro" layoutX="182.0" layoutY="267.0" textFill="#32ee4b" />
-            <TextField fx:id="nome" layoutX="18.0" layoutY="91.0" prefHeight="25.0" prefWidth="228.0" promptText="Nome" />
-            <TextField fx:id="email" layoutX="18.0" layoutY="124.0" prefHeight="25.0" prefWidth="228.0" promptText="email" />
-            <CheckBox fx:id="termos" layoutX="20.0" layoutY="226.0" mnemonicParsing="false" text="Concordo com os termos de uso.">
-               <font>
-                  <Font size="11.0" />
-               </font>
-            </CheckBox>
-            <Label layoutX="122.0" layoutY="251.0" textFill="#07d71f">
-               <font>
-                  <Font size="11.0" />
-               </font>
-            </Label>
-            <PasswordField fx:id="senha" layoutX="18.0" layoutY="161.0" prefHeight="25.0" prefWidth="228.0" promptText="senha" />
+            <Label fx:id="sucessoCadastro" layoutX="255.0" layoutY="351.0" textFill="#32ee4b" />
          </children></Pane>
-      <Hyperlink fx:id="entrar" layoutX="319.0" layoutY="375.0" onAction="#telaLogin" text="Entrar" textFill="WHITE" underline="true" />
-      <Label layoutX="217.0" layoutY="378.0" prefHeight="17.0" prefWidth="102.0" text="Já tem uma conta?" textFill="#fffbfb" />
+      <ImageView fitHeight="378.0" fitWidth="388.0" layoutX="156.0" layoutY="105.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@aldeia%20da%20folha(frase).png" />
+         </image>
+      </ImageView>
    </children>
 </Pane>

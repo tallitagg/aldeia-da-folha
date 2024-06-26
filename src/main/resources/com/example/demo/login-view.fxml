@@ -5,30 +5,54 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #000000;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo.LoginController">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1366.0" style="-fx-background-color: #ECFFB7;" stylesheets="@styles.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo.LoginController">
     <children>
-        <Pane layoutX="165.0" layoutY="82.0" prefHeight="237.0" prefWidth="270.0" style="-fx-background-color: #FFFFFF;">
+        <Pane layoutX="450.0" layoutY="112.0" prefHeight="552.0" prefWidth="512.0" style="-fx-background-color: #57744B;" styleClass="roudend-pane">
             <children>
                 <Label fx:id="erroCadastro" layoutX="127.0" layoutY="197.0" textFill="#f80000" />
-                <Label layoutX="16.0" layoutY="14.0" text="Login">
+                <Label layoutX="106.0" layoutY="201.0" text="Login" textFill="#fefae0">
                     <font>
-                        <Font name="System Bold" size="26.0" />
+                        <Font name="System Bold" size="24.0" />
                     </font>
                 </Label>
-                <TextField fx:id="email" layoutX="14.0" layoutY="88.0" prefHeight="25.0" prefWidth="228.0" promptText="E-mail" />
-                <PasswordField fx:id="senha" layoutX="14.0" layoutY="126.0" prefHeight="25.0" prefWidth="228.0" promptText="Senha" />
-                <Button fx:id="logar" layoutX="110.0" layoutY="172.0" mnemonicParsing="false" onAction="#botaoLogar" text="Entrar!" />
-                <Label layoutX="16.0" layoutY="52.0" opacity="0.65" prefHeight="17.0" prefWidth="264.0" text="Preencha os espaços para entrar na sua  sua conta!">
+                <TextField fx:id="email" layoutX="101.0" layoutY="268.0" prefHeight="25.0" prefWidth="332.0" promptText="E-mail" style="-fx-background-color: #fefae0;" />
+                <PasswordField fx:id="senha" layoutX="100.0" layoutY="314.0" prefHeight="25.0" prefWidth="333.0" promptText="Senha" style="-fx-background-color: #fefae0;" />
+                <Button fx:id="logar" layoutX="239.0" layoutY="456.0" mnemonicParsing="false" onAction="#botaoLogar" style="-fx-background-color: #fefae0;" text="Entrar!">
+               <font>
+                  <Font size="14.0" />
+               </font></Button>
+                <Label layoutX="103.0" layoutY="237.0" opacity="0.65" prefHeight="19.0" prefWidth="316.0" text="Preencha os espaços para entrar na sua  sua conta!" textFill="#fefae0">
                     <font>
-                        <Font size="10.0" />
+                        <Font size="13.0" />
                     </font></Label>
                 <Label fx:id="sucessoCadastro" layoutX="182.0" layoutY="267.0" textFill="#32ee4b" />
-              <Hyperlink layoutX="81.0" layoutY="212.0" text="Esqueceu a Senha?" underline="true" />
+              <Hyperlink layoutX="206.0" layoutY="506.0" text="Esqueceu a Senha?" textFill="#fefae0" underline="true">
+               <font>
+                  <Font size="14.0" />
+               </font></Hyperlink>
+            <ImageView fitHeight="369.0" fitWidth="360.0" layoutX="84.0" layoutY="-76.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@aldeia%20da%20folha.png" />
+               </image>
+            </ImageView>
+            <Label layoutX="462.0" layoutY="494.0" text="🍁 " textFill="#fefae0">
+               <font>
+                  <Font size="36.0" />
+               </font>
+            </Label>
             </children></Pane>
-      <Hyperlink fx:id="cadastro" layoutX="318.0" layoutY="355.0" onAction="#telaCadastro" text="Cadastrar" underline="true" />
-      <Label layoutX="207.0" layoutY="358.0" text="Não tem uma conta?" textFill="#fff9f9" />
+      <Hyperlink fx:id="cadastro" layoutX="742.0" layoutY="677.0" onAction="#telaCadastro" text="Cadastrar" textFill="#57744b" underline="true">
+         <font>
+            <Font size="14.0" />
+         </font></Hyperlink>
+      <Label layoutX="611.0" layoutY="679.0" text="Não tem uma conta?" textFill="#57744b">
+         <font>
+            <Font size="14.0" />
+         </font></Label>
     </children>
 </Pane>

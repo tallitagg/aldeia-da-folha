@@ -1,0 +1,11 @@
+.roudend-text-field{
+    -fx-background-radius: 15;
+    -fx-border-radius: 15;
+    -fx-padding: 3;
+}
+.roudend-pane{
+     -fx-background-radius: 20;
+     -fx-border-radius: 20;
+     -fx-padding: 3;
+
+ }
