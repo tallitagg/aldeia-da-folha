@@ -7,5 +7,10 @@
      -fx-background-radius: 20;
      -fx-border-radius: 20;
      -fx-padding: 3;
-
  }
+.text-area{
+    -fx-control-inner-background:  #FEFAE0;
+}
+.text-area1{
+    -fx-control-inner-background:     #344EAC;
+}

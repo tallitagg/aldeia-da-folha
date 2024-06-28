@@ -10,9 +10,9 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<Pane fx:id="msgCad" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1366.0" style="-fx-background-color: #ECFFB7;" stylesheets="@styles.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo.AdmController">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1366.0" style="-fx-background-color: #95BEFF;" stylesheets="@styles.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo.AdmController">
     <children>
-        <Pane layoutX="104.0" layoutY="106.0" prefHeight="552.0" prefWidth="509.0" style="-fx-background-color: #57744B;" styleClass="roudend-pane">
+        <Pane layoutX="104.0" layoutY="106.0" prefHeight="552.0" prefWidth="509.0" style="-fx-background-color: #344EAC;" styleClass="roudend-pane">
             <children>
                 <Label layoutX="45.0" layoutY="14.0" text="Cadastro dos livros" textFill="#fefae0">
                     <font>
@@ -25,10 +25,11 @@
                     </font></Label>
                 <TextField fx:id="autor" layoutX="69.0" layoutY="131.0" prefHeight="35.0" prefWidth="372.0" promptText="Autor" style="-fx-background-color: #FEFAE0;" />
                 <TextField fx:id="genero" layoutX="70.0" layoutY="182.0" prefHeight="35.0" prefWidth="372.0" promptText="Gênero" style="-fx-background-color: #FEFAE0;" />
-            <TextField fx:id="nomeDoLivro" layoutX="69.0" layoutY="232.0" prefHeight="35.0" prefWidth="372.0" promptText="Nome do Livro" />
-            <TextArea fx:id="sinopse" layoutX="69.0" layoutY="282.0" prefHeight="106.0" prefWidth="372.0" promptText="Insira a sinopse aqui:" />
-            <TextField fx:id="imagem" layoutX="70.0" layoutY="403.0" prefHeight="35.0" prefWidth="372.0" promptText="Caminho da imagem" />
-                <Button fx:id="cadastrar" layoutX="206.0" layoutY="484.0" mnemonicParsing="false" onAction="#botaoCadastrar" prefHeight="30.0" prefWidth="100.0" style="-fx-background-color: #FEFAE0;" text="Cadastrar">
+            <TextField fx:id="nomeDoLivro" layoutX="69.0" layoutY="232.0" prefHeight="35.0" prefWidth="372.0" promptText="Nome do Livro" style="-fx-background-color: #FEFAE0;" />
+            <TextArea fx:id="sinopse" layoutX="69.0" layoutY="282.0" prefHeight="70.0" prefWidth="372.0" promptText="Insira a sinopse aqui:" styleClass="text-area" stylesheets="@styles.css" />
+            <TextField fx:id="localizacao" layoutX="69.0" layoutY="367.0" prefHeight="35.0" prefWidth="372.0" promptText="Localização" style="-fx-background-color: #FEFAE0;" />
+            <TextField fx:id="imagem" layoutX="69.0" layoutY="415.0" prefHeight="35.0" prefWidth="372.0" promptText="Caminho da imagem" style="-fx-background-color: #FEFAE0;" />
+                <Button fx:id="cadastrar" layoutX="206.0" layoutY="484.0" mnemonicParsing="false" onAction="#botaoCadastrar" prefHeight="30.0" prefWidth="100.0" style="-fx-background-color: #FEFAE0;" text="Cadastrar" textFill="#57744b">
                     <font>
                         <Font size="14.0" />
                     </font></Button>
@@ -43,17 +44,17 @@
                     </font>
                 </Label>
             </children></Pane>
-      <Button fx:id="inserirImagem" layoutX="806.0" layoutY="181.0" mnemonicParsing="false" onAction="#openFileChooser" opacity="0.29" prefHeight="400.0" prefWidth="400.0" styleClass="roudend-pane" text="Insira a imagem do livro" textFill="#57744b">
+      <Button fx:id="inserirImagem" layoutX="872.0" layoutY="189.0" mnemonicParsing="false" onAction="#selecionarImagem" opacity="0.29" prefHeight="425.0" prefWidth="287.0" style="-fx-background-color: #FEFAE0;" text="Insira a imagem do livro" textFill="#344eac">
          <font>
-            <Font name="System Bold" size="24.0" />
+            <Font name="System Bold" size="18.0" />
          </font>
       </Button>
-      <ImageView fitHeight="248.0" fitWidth="255.0" layoutX="884.0" layoutY="5.0" pickOnBounds="true" preserveRatio="true">
+      <Label fx:id="msgCad" layoutX="1007.0" layoutY="638.0" textFill="#57744b" />
+      <ImageView fx:id="capaDoLivro" fitHeight="425.0" fitWidth="287.0" layoutX="865.0" layoutY="194.0" onMouseClicked="#selecionarImagem" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fitHeight="213.0" fitWidth="215.0" layoutX="905.0" layoutY="21.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@aldeia%20da%20folha(verde).png" />
+            <Image url="@aldeia%20da%20folha(azul).png" />
          </image>
       </ImageView>
-      <Label fx:id="erroCadastro" layoutX="1007.0" layoutY="638.0" style="-fx-background-color: #57744B;" />
-      <ImageView fitHeight="400.0" fitWidth="400.0" layoutX="799.0" layoutY="186.0" pickOnBounds="true" preserveRatio="true" styleClass="roudend-pane" />
     </children>
 </Pane>

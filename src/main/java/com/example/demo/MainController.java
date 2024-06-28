@@ -17,13 +17,13 @@ public class MainController {
     private Label label;
 
     @FXML
-    private ChoiceBox<String> genero;
+    private ComboBox<String> genero;
 
     @FXML
-    private ChoiceBox<String> autor;
+    private ComboBox<String> autor;
 
     @FXML
-    private ChoiceBox<String> titulo;
+    private ComboBox<String> titulo;
 
     @FXML
     private ImageView imagem;
@@ -37,18 +37,23 @@ public class MainController {
     @FXML
     private Button botaoPesquisa;
 
+    @FXML
+    private Label localizacao;
+
+
     private String url = "jdbc:mysql://localhost:3306/aldeia_teste";
     private String user = "root";
     private String pwd = "";
 
     @FXML
     public void initialize() {
-        loadChoiceBoxes();
+        loadGenero();
 
         genero.setOnAction(event -> updateBookInfo());
+        genero.setOnAction(event -> loadAutor());
         autor.setOnAction(event -> updateBookInfo());
+        autor.setOnAction(event -> loadTitulo());
         titulo.setOnAction(event -> updateBookInfo());
-
     }
 
     private void loadChoiceBoxes() {
@@ -75,7 +80,16 @@ public class MainController {
     }
 
     private void loadAutor() {
-        String query = "select distinct autor from livro order by autor";
+        autor.getItems().clear();
+        String selectedGenero = genero.getValue();
+        String query;
+        if(selectedGenero != null) {
+            query = String.format("SELECT distinct autor FROM livro WHERE genero='%s' ORDER BY autor",
+                    selectedGenero);
+        }else {
+            query = "select distinct autor from livro order by autor";
+        }
+
 
         try (Connection connection = DriverManager.getConnection(url, user, pwd);
              Statement statement = connection.createStatement();
@@ -88,11 +102,18 @@ public class MainController {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-
     }
 
     private void loadTitulo() {
-        String query = "select distinct titulo from livro order by titulo";
+        titulo.getItems().clear();
+        String selectedAutor = autor.getValue();
+        String query;
+        if(selectedAutor!= null) {
+            query = String.format("SELECT distinct titulo FROM livro WHERE autor='%s' ORDER BY titulo",
+                    selectedAutor);
+        }else {
+            query = "select distinct titulo from livro order by titulo";
+        }
 
         try (Connection connection = DriverManager.getConnection(url, user, pwd);
              Statement statement = connection.createStatement();
@@ -114,7 +135,7 @@ public class MainController {
         String selectedTitulo = titulo.getValue();
 
         if (selectedGenero != null && selectedAutor != null && selectedTitulo != null) {
-            String query = String.format("SELECT imagem, resumo FROM livro WHERE genero='%s' AND autor='%s' AND titulo='%s'",
+            String query = String.format("SELECT imagem, resumo, loc FROM livro WHERE genero='%s' AND autor='%s' AND titulo='%s'",
                     selectedGenero, selectedAutor, selectedTitulo);
 
             try (Connection connection = DriverManager.getConnection(url, user, pwd);
@@ -124,10 +145,13 @@ public class MainController {
                 if (resultSet.next()) {
                     String imagemPath = resultSet.getString("imagem");
                     String resumo = resultSet.getString("resumo");
+                    String loca = resultSet.getString("loc");
 
                     imagem.setImage(new Image("file:" + imagemPath));
                     sinopse.setText(resumo);
+                    sinopse.setEditable(false);
                     sinopse.setWrapText(true);
+                    localizacao.setText(loca);
                 }
 
             } catch (SQLException e) {

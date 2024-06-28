@@ -2,6 +2,8 @@ package com.example.demo;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 
@@ -30,29 +32,17 @@ import java.sql.SQLException;
         @FXML
         private TextField imagem;
         @FXML
-        private Button inserirImagem;
+        private ImageView capaDoLivro;
+
+        private Stage stage;
+
+        @FXML
+        private TextField localizacao;
 
         @FXML
         public void initialize() {
            sinopse.setWrapText(true);
 
-           inserirImagem.setOnAction(event -> openFileChooser());
-        }
-        @FXML
-        private void openFileChooser() {
-            FileChooser fileChooser = new FileChooser();
-
-            // Configura o filtro para permitir apenas imagens
-            FileChooser.ExtensionFilter imageFilter = new FileChooser.ExtensionFilter("Image Files", ".png", ".jpg", ".jpeg", ".gif");
-            fileChooser.getExtensionFilters().add(imageFilter);
-
-            // Abre o FileChooser
-            File selectedFile = fileChooser.showOpenDialog(new Stage());
-
-            // Se um arquivo for selecionado, armazena o caminho no TextField
-            if (selectedFile != null) {
-                imagem.setText(selectedFile.getAbsolutePath());
-            }
         }
 
         @FXML
@@ -62,28 +52,41 @@ import java.sql.SQLException;
             String name = nomeDoLivro.getText();
             String sin = sinopse.getText();
             String image = imagem.getText();
+            String local = localizacao.getText();
 
-            if(actor != null && type != null && name != null && sin != null){
-                salvarNoBanco(actor, type, name, sin, image);
+            if(actor != null && type != null && name != null && sin != null && local != null){
+                salvarNoBanco(actor, type, name, sin, image,local);
                 msgCad.setText("Livro cadastrado com sucesso!");
 
             }else{
                 msgCad.setText("Alguns campos não foram preenchidos, por favor preencha todos!");
             }
-
+            limparTela();
         }
+        private void limparTela(){
+            autor.setText("");
+            genero.setText("");
+            nomeDoLivro.setText("");
+            sinopse.setText("");
+            imagem.setText("");
+            capaDoLivro.setImage(new Image("file:" + "C:/Users/user/Documents/POO/demo/src/images/fundo(aldeia da folha).png"));
+            localizacao.setText("");
+        }
+
+
+
         @FXML
         private void telaLogin() throws IOException {
             Stage stage = (Stage)  nomeDoLivro.getScene().getWindow();
             SceneSwitcher.switchScene(stage,"login-view.fxml");
         }
 
-        private void salvarNoBanco(String autor, String genero, String nomeDoLivro, String sinopse, String imagem) {
+        private void salvarNoBanco(String autor, String genero, String nomeDoLivro, String sinopse, String imagem, String localizacao) {
             String url = "jdbc:mysql://localhost:3306/aldeia_teste";
             String user = "root";
             String pwd = "";
 
-            String query = "INSERT INTO livro (autor,genero,titulo,resumo,imagem) VALUES (?, ?, ?, ?, ?)";
+            String query = "INSERT INTO livro (autor,genero,titulo,resumo,imagem,loc) VALUES (?, ?, ?, ?, ?, ?)";
 
             try (Connection connection = DriverManager.getConnection(url, user, pwd);
                  PreparedStatement preparedStatement = connection.prepareStatement(query)) {
@@ -93,6 +96,7 @@ import java.sql.SQLException;
                 preparedStatement.setString(3, nomeDoLivro);
                 preparedStatement.setString(4, sinopse);
                 preparedStatement.setString(5, imagem);
+                preparedStatement.setString(6, localizacao);
 
                 int rowsAffected = preparedStatement.executeUpdate();
                 if (rowsAffected > 0) {
@@ -101,6 +105,17 @@ import java.sql.SQLException;
 
             } catch (SQLException e) {
                 e.printStackTrace();
+            }
+        }
+
+        @FXML
+        private void selecionarImagem() {
+            FileChooser fileChooser = new FileChooser();
+            fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("Imange Files","*.jpg","*.png","*.jpeg"));
+            File selectedFile = fileChooser.showOpenDialog(stage);
+            if(selectedFile != null) {
+                imagem.setText(selectedFile.getAbsolutePath().replace("\\","/"));
+                capaDoLivro.setImage(new Image("file:" + selectedFile.getAbsolutePath()));
             }
         }
 
