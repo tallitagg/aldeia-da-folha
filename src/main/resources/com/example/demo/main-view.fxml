@@ -2,6 +2,7 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Hyperlink?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
@@ -10,29 +11,44 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="762.0" prefWidth="1366.0" style="-fx-background-color: #344EAC;" stylesheets="@styles.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo.MainController">
+<AnchorPane prefHeight="762.0" prefWidth="1366.0" style="-fx-background-color: #344EAC;" styleClass="myAnchorPane" stylesheets="@styles.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo.MainController">
    <children>
-      <TextField fx:id="pesquisa" layoutX="109.0" layoutY="40.0" prefHeight="25.0" prefWidth="413.0" promptText="Pesquisar" style="-fx-background-color: #95BEFF;" />
-      <Button fx:id="botaoPesquisa" layoutX="500.0" layoutY="40.0" mnemonicParsing="false" onAction="#pesquisar" prefWidth="25.0" style="-fx-background-color: #ffffff;" text="🔍" textFill="#344eac">
+      <TextField fx:id="pesquisa" layoutX="105.0" layoutY="38.0" prefHeight="34.0" prefWidth="469.0" promptText="Pesquisar" style="-fx-background-color: #95BEFF;" />
+      <Button fx:id="botaoPesquisa" layoutX="538.0" layoutY="39.0" mnemonicParsing="false" onAction="#pesquisar" prefHeight="32.0" prefWidth="36.0" style="-fx-background-color: #ffffff;" text="🔍" textFill="#344eac">
          <font>
-            <Font size="11.0" />
+            <Font size="14.0" />
          </font></Button>
-      <Label layoutX="646.0" layoutY="17.0" text="Gênero" textFill="WHITE" />
-      <Label layoutX="1062.0" layoutY="17.0" text="Título" textFill="WHITE" />
-      <Label layoutX="856.0" layoutY="16.0" text="Autor" textFill="WHITE" />
-      <TextArea fx:id="sinopse" layoutX="137.0" layoutY="162.0" prefHeight="425.0" prefWidth="287.0" styleClass="text-area1" />
-      <ImageView fx:id="imagem" fitHeight="425.0" fitWidth="287.0" layoutX="943.0" layoutY="163.0" pickOnBounds="true" preserveRatio="true" />
-      <ComboBox fx:id="genero" layoutX="642.0" layoutY="39.0" prefHeight="18.0" prefWidth="150.0" style="-fx-background-color: #95BEFF;" />
-      <ComboBox fx:id="titulo" layoutX="1060.0" layoutY="39.0" prefHeight="18.0" prefWidth="150.0" style="-fx-background-color: #95BEFF;" />
-      <ComboBox fx:id="autor" layoutX="850.0" layoutY="39.0" prefHeight="18.0" prefWidth="150.0" style="-fx-background-color: #95BEFF;" />
-      <ImageView fitHeight="323.0" fitWidth="379.0" layoutX="525.0" layoutY="199.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@aldeia%20da%20folha(branca%20com%20frase)%20(1).png" />
-         </image>
-      </ImageView>
+      <Label layoutX="646.0" layoutY="19.0" text="Gênero" textFill="WHITE" />
+      <Label layoutX="1062.0" layoutY="19.0" text="Título" textFill="WHITE" />
+      <Label layoutX="856.0" layoutY="18.0" text="Autor" textFill="WHITE" />
+      <TextArea fx:id="sinopse" layoutX="139.0" layoutY="180.0" prefHeight="425.0" prefWidth="287.0" styleClass="text-area1" />
+      <ImageView fx:id="imagem" fitHeight="425.0" fitWidth="287.0" layoutX="894.0" layoutY="183.0" pickOnBounds="true" preserveRatio="true" />
+      <ComboBox fx:id="genero" layoutX="642.0" layoutY="42.0" prefHeight="18.0" prefWidth="150.0" style="-fx-background-color: #95BEFF;" />
+      <ComboBox fx:id="titulo" layoutX="1060.0" layoutY="41.0" prefHeight="18.0" prefWidth="150.0" style="-fx-background-color: #95BEFF;" />
+      <ComboBox fx:id="autor" layoutX="850.0" layoutY="41.0" prefHeight="18.0" prefWidth="150.0" style="-fx-background-color: #95BEFF;" />
       <Label fx:id="localizacao" layoutX="999.0" layoutY="633.0" textFill="WHITE">
          <font>
             <Font size="18.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="155.0" fitWidth="177.0" layoutX="1208.0" layoutY="-28.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@aldeia%20da%20folha(branca).png" />
+         </image>
+      </ImageView>
+      <Hyperlink fx:id="cadLivro" layoutX="214.0" layoutY="619.0" onAction="#telaCadLivro" prefHeight="33.0" prefWidth="116.0" text="Cadastrar Livro" textFill="#fffefe">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Hyperlink>
+      <Hyperlink fx:id="sair" layoutX="1247.0" layoutY="631.0" onAction="#sair" text="Sair" textFill="#fff6f6">
+         <font>
+            <Font size="26.0" />
+         </font>
+      </Hyperlink>
+      <Label fx:id="naoEnc" layoutX="245.0" layoutY="110.0" textFill="WHITE">
+         <font>
+            <Font size="23.0" />
          </font>
       </Label>
    </children>

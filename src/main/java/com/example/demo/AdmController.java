@@ -33,6 +33,8 @@ import java.sql.SQLException;
         private TextField imagem;
         @FXML
         private ImageView capaDoLivro;
+        @FXML
+        private TextField quant_livros;
 
         private Stage stage;
 
@@ -53,9 +55,10 @@ import java.sql.SQLException;
             String sin = sinopse.getText();
             String image = imagem.getText();
             String local = localizacao.getText();
+            String quant = quant_livros.getText();
 
-            if(actor != null && type != null && name != null && sin != null && local != null){
-                salvarNoBanco(actor, type, name, sin, image,local);
+            if(actor != null && type != null && name != null && sin != null && local != null && quant != null){
+                salvarNoBanco(actor, type, name, sin, image,local,quant);
                 msgCad.setText("Livro cadastrado com sucesso!");
 
             }else{
@@ -71,6 +74,7 @@ import java.sql.SQLException;
             imagem.setText("");
             capaDoLivro.setImage(new Image("file:" + "C:/Users/user/Documents/POO/demo/src/images/fundo(aldeia da folha).png"));
             localizacao.setText("");
+            quant_livros.setText("");
         }
 
 
@@ -78,15 +82,15 @@ import java.sql.SQLException;
         @FXML
         private void telaLogin() throws IOException {
             Stage stage = (Stage)  nomeDoLivro.getScene().getWindow();
-            SceneSwitcher.switchScene(stage,"login-view.fxml");
+            SceneSwitcher.switchScene(stage,"main-view.fxml");
         }
 
-        private void salvarNoBanco(String autor, String genero, String nomeDoLivro, String sinopse, String imagem, String localizacao) {
+        private void salvarNoBanco(String autor, String genero, String nomeDoLivro, String sinopse, String imagem, String localizacao, String quant_livros) {
             String url = "jdbc:mysql://localhost:3306/aldeia_teste";
             String user = "root";
             String pwd = "";
 
-            String query = "INSERT INTO livro (autor,genero,titulo,resumo,imagem,loc) VALUES (?, ?, ?, ?, ?, ?)";
+            String query = "INSERT INTO livro (autor,genero,titulo,resumo,imagem,loc,quant_livros) VALUES (?, ?, ?, ?, ?, ?, ?)";
 
             try (Connection connection = DriverManager.getConnection(url, user, pwd);
                  PreparedStatement preparedStatement = connection.prepareStatement(query)) {
@@ -97,6 +101,7 @@ import java.sql.SQLException;
                 preparedStatement.setString(4, sinopse);
                 preparedStatement.setString(5, imagem);
                 preparedStatement.setString(6, localizacao);
+                preparedStatement.setInt(7, Integer.parseInt(quant_livros));
 
                 int rowsAffected = preparedStatement.executeUpdate();
                 if (rowsAffected > 0) {

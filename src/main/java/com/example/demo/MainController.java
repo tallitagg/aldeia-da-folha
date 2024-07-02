@@ -1,5 +1,6 @@
 package com.example.demo;
 import javafx.application.Application;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -11,6 +12,7 @@ import javafx.scene.control.*;
 import javax.swing.*;
 import java.io.IOException;
 import java.sql.*;
+import java.time.LocalDate;
 
 public class MainController {
     @FXML
@@ -40,6 +42,17 @@ public class MainController {
     @FXML
     private Label localizacao;
 
+    @FXML
+    private Button pegarEmprestado;
+
+    @FXML
+    private Hyperlink cadLivro;
+
+    @FXML
+    private Hyperlink sair;
+
+    @FXML
+    private Label naoEnc;
 
     private String url = "jdbc:mysql://localhost:3306/aldeia_teste";
     private String user = "root";
@@ -83,10 +96,10 @@ public class MainController {
         autor.getItems().clear();
         String selectedGenero = genero.getValue();
         String query;
-        if(selectedGenero != null) {
+        if (selectedGenero != null) {
             query = String.format("SELECT distinct autor FROM livro WHERE genero='%s' ORDER BY autor",
                     selectedGenero);
-        }else {
+        } else {
             query = "select distinct autor from livro order by autor";
         }
 
@@ -108,10 +121,10 @@ public class MainController {
         titulo.getItems().clear();
         String selectedAutor = autor.getValue();
         String query;
-        if(selectedAutor!= null) {
+        if (selectedAutor != null) {
             query = String.format("SELECT distinct titulo FROM livro WHERE autor='%s' ORDER BY titulo",
                     selectedAutor);
-        }else {
+        } else {
             query = "select distinct titulo from livro order by titulo";
         }
 
@@ -160,8 +173,9 @@ public class MainController {
         }
 
     }
+
     @FXML
-    private void pesquisar(){
+    private void pesquisar() {
         String itemPesquisa = pesquisa.getText();
         if (itemPesquisa != null) {
             String query = String.format("SELECT imagem, resumo FROM livro WHERE titulo='%s'",
@@ -178,12 +192,24 @@ public class MainController {
                     imagem.setImage(new Image("file:" + imagemPath));
                     sinopse.setText(resumo);
                     sinopse.setWrapText(true);
+                }else{
+                    naoEnc.setText("Livro não encontrado");
                 }
 
             } catch (SQLException e) {
                 e.printStackTrace();
             }
         }
-
+    }
+    @FXML
+    private void telaCadLivro() throws IOException {
+        Stage stage = (Stage)  cadLivro.getScene().getWindow();
+        SceneSwitcher.switchScene(stage,"adm-view.fxml");
+    }
+    @FXML
+    private void sair() throws IOException {
+        Stage stage = (Stage)  cadLivro.getScene().getWindow();
+        SceneSwitcher.switchScene(stage,"hello-view.fxml");
     }
 }
+

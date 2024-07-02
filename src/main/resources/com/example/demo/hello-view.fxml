@@ -28,12 +28,12 @@
             <TextField fx:id="email" layoutX="70.0" layoutY="182.0" prefHeight="35.0" prefWidth="372.0" promptText="Email" style="-fx-background-color: #FEFAE0;" />
             <PasswordField fx:id="senha" layoutX="70.0" layoutY="233.0" prefHeight="35.0" prefWidth="372.0" promptText="Senha" style="-fx-background-color: #FEFAE0;" />
             <PasswordField fx:id="confirmarSenha" layoutX="70.0" layoutY="284.0" prefHeight="35.0" prefWidth="372.0" promptText="Confirmar senha" style="-fx-background-color: #FEFAE0;" />
-            <CheckBox fx:id="termos" layoutX="152.0" layoutY="408.0" mnemonicParsing="false" prefHeight="20.0" prefWidth="242.0" text="Concordo com os termos de uso." textFill="#fefae0">
+            <CheckBox fx:id="termos" layoutX="152.0" layoutY="364.0" mnemonicParsing="false" prefHeight="20.0" prefWidth="242.0" text="Concordo com os termos de uso." textFill="#fefae0">
                <font>
                   <Font size="14.0" />
                </font>
             </CheckBox>
-            <Button fx:id="cadastrar" layoutX="206.0" layoutY="452.0" mnemonicParsing="false" onAction="#botaoCadastrar" prefHeight="30.0" prefWidth="100.0" style="-fx-background-color: #FEFAE0;" text="Cadastrar">
+            <Button fx:id="cadastrar" layoutX="206.0" layoutY="425.0" mnemonicParsing="false" onAction="#botaoCadastrar" prefHeight="30.0" prefWidth="100.0" style="-fx-background-color: #FEFAE0;" text="Cadastrar">
                <font>
                   <Font size="14.0" />
                </font></Button>

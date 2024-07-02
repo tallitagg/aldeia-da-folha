@@ -10,9 +10,9 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1366.0" style="-fx-background-color: #95BEFF;" stylesheets="@styles.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo.LoginController">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1000.0" style="-fx-background-color: #95BEFF;" stylesheets="@styles.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo.LoginController">
     <children>
-        <Pane layoutX="450.0" layoutY="112.0" prefHeight="552.0" prefWidth="512.0" style="-fx-background-color: #344EAC;" styleClass="roudend-pane">
+        <Pane layoutX="453.0" layoutY="62.0" prefHeight="552.0" prefWidth="512.0" style="-fx-background-color: #344EAC;" styleClass="roudend-pane">
             <children>
                 <Label fx:id="erroCadastro" layoutX="127.0" layoutY="197.0" textFill="#f80000" />
                 <Label layoutX="106.0" layoutY="201.0" text="Login" textFill="#fefae0">
@@ -22,7 +22,7 @@
                 </Label>
                 <TextField fx:id="email" layoutX="101.0" layoutY="268.0" prefHeight="25.0" prefWidth="332.0" promptText="E-mail" style="-fx-background-color: #fefae0;" />
                 <PasswordField fx:id="senha" layoutX="100.0" layoutY="314.0" prefHeight="25.0" prefWidth="333.0" promptText="Senha" style="-fx-background-color: #fefae0;" />
-                <Button fx:id="logar" layoutX="239.0" layoutY="456.0" mnemonicParsing="false" onAction="#botaoLogar" style="-fx-background-color: #fefae0;" text="Entrar!">
+                <Button fx:id="logar" layoutX="239.0" layoutY="494.0" mnemonicParsing="false" onAction="#botaoLogar" style="-fx-background-color: #fefae0;" text="Entrar!">
                <font>
                   <Font size="14.0" />
                </font></Button>
@@ -31,10 +31,6 @@
                         <Font size="13.0" />
                     </font></Label>
                 <Label fx:id="sucessoCadastro" layoutX="182.0" layoutY="267.0" textFill="#32ee4b" />
-              <Hyperlink layoutX="206.0" layoutY="506.0" text="Esqueceu a Senha?" textFill="#fefae0" underline="true">
-               <font>
-                  <Font size="14.0" />
-               </font></Hyperlink>
             <ImageView fitHeight="336.0" fitWidth="456.0" layoutX="99.0" layoutY="-59.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@aldeia%20da%20folha(branca).png" />
@@ -46,11 +42,11 @@
                </font>
             </Label>
             </children></Pane>
-      <Hyperlink fx:id="cadastro" layoutX="742.0" layoutY="676.0" onAction="#telaCadastro" text="Cadastrar" textFill="#344eac" underline="true">
+      <Hyperlink fx:id="cadastro" layoutX="742.0" layoutY="622.0" onAction="#telaCadastro" text="Cadastrar" textFill="#344eac" underline="true">
          <font>
             <Font size="14.0" />
          </font></Hyperlink>
-      <Label layoutX="611.0" layoutY="679.0" text="Não tem uma conta?" textFill="#fefae0">
+      <Label layoutX="611.0" layoutY="625.0" text="Não tem uma conta?" textFill="#fefae0">
          <font>
             <Font size="14.0" />
          </font></Label>

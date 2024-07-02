@@ -31,7 +31,7 @@ public class HelloController {
     private Hyperlink entrar;
 
     @FXML
-    public void botaoCadastrar() {
+    public void botaoCadastrar() throws IOException {
         String name = nome.getText();
         String mail = email.getText();
         String pass = senha.getText();
@@ -40,6 +40,7 @@ public class HelloController {
         if(conferirSenha(pass, passConfirm)) {
             salvarNoBanco(name,mail,pass);
             sucessoCadastro.setText("Sucess!");
+            telaLogin() ;
         }else{
             erroCadastro.setText("Erro! As senhas não conferem.");
         }

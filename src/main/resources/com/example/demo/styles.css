@@ -9,8 +9,14 @@
      -fx-padding: 3;
  }
 .text-area{
-    -fx-control-inner-background:  #FEFAE0;
+    -fx-control-inner-background: #FEFAE0;
 }
 .text-area1{
-    -fx-control-inner-background:     #344EAC;
+    -fx-control-inner-background: #344EAC;
+}
+.myAnchorPane{
+    -fx-background-image: url("fundo(branco)1.png");
+    -fx-background-size: cover;
+    -fx-background-position: center center;
+
 }
